@@ -14,9 +14,8 @@
                             {!! Form::open(['route'=> 'food.list.store', 'method' => 'POST']) !!}
                             @include('food.partials.files')
                         <div class="form-group">
-                            {!! Form::submit('Alta Alimento') !!}
+                            {!! Form::submit('Alta del Alimento') !!}
                         </div>
-
                         {!! Form::close() !!}
                         </p>
 

@@ -14,15 +14,19 @@ class CreateFoodsTable extends Migration {
 	{
 		Schema::create('foods', function(Blueprint $table)
 		{
-            $table -> increments('id'); // ID autoincrement
+            $table -> increments('id'); // ID Autoincrement Primary Key
             $table -> string('name')->unique(); // Nombre del alimento
 
-            $table -> integer('property_id')->unsigned();
-            $table -> foreign('property_id')
-                -> references('id')
-                -> on('properties')
-                -> onDelete('cascade');
+            // Propiedades del alimento
+            $table -> double('calories');
+            $table -> double('protein');
+            $table -> double('fats');
+            $table -> double('hydrates');
+            $table -> double('sugars');
+            $table -> double('fiber');
+            $table -> double('salt');
 
+            // Clave foránea
             $table -> integer('group_id')->unsigned();
             $table->foreign('group_id')
                 -> references('id')

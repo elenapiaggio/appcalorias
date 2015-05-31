@@ -17,17 +17,14 @@ Use Faker\Factory as Faker;
          */
         private function createAdmin(){
 
-            $id = \DB::table('users')->insertGetId(array(
+            \DB::table('users')->insert(array(
                 'first_name' => 'Helena',
                 'last_name' => 'Piaggio',
                 'email' => 'helena@gmail.com',
                 'password' => \Hash::make('admin'),
-                'type' => 'admin'
-            ));
+                'type' => 'admin',
 
-            \DB::table('user_profiles')->insert(array(
-                'user_id' => $id,
-                'birthdate' => '1983/09/23',
+                'birthdate' => '1981/11/07',
                 'height'=> 154,
                 'weight' => 60,
                 'type_activity' => 'intense',
@@ -43,18 +40,17 @@ Use Faker\Factory as Faker;
          */
         private function createUsers($total){
             $faker = Faker::create();
+
             for($i=0; $i<=$total; $i++){
-                $id = \DB::table('users')->insertGetId(array(
+                \DB::table('users')->insert(array(
                     'first_name' 	=> $faker->firstName,
                     'last_name' 	=> $faker->lastName,
                     'email' 		=> $faker->unique()->email,
                     'password' 		=> \Hash::make('secret'),
-                    'type' 			=> 'user'
-                ));
-                \DB::table('user_profiles')->insert(array(
-                    'user_id'	=> $id,
+                    'type' 			=> 'user',
+
                     // obtengo fechas aleatorias entre 99 y 15
-                    'birthdate'     => $faker->dateTimeBetween('-99 years','-15 years')->format('Y-m-d'),
+                    'birthdate'     => $faker->dateTimeBetween('-99 years','-18 years')->format('Y-m-d'),
                     'height'        => $faker->numberBetween($min = 130, $max = 220), // altura
                     'weight'        => $faker->numberBetween($min = 40, $max = 150), // peso
                     'type_activity' => $faker->randomElement($array = array('sedentary', 'light', 'moderate', 'intense', 'extremely_high')),

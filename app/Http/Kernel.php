@@ -27,6 +27,10 @@ class Kernel extends HttpKernel {
 		'auth' => 'AppCalorias\Http\Middleware\Authenticate',
 		'auth.basic' => 'Illuminate\Auth\Middleware\AuthenticateWithBasicAuth',
 		'guest' => 'AppCalorias\Http\Middleware\RedirectIfAuthenticated',
+
+        'localize' => 'Mcamara\LaravelLocalization\Middleware\LaravelLocalizationRoutes',
+        'localizationRedirect' => 'Mcamara\LaravelLocalization\Middleware\LaravelLocalizationRedirectFilter',
+        'localeSessionRedirect' => 'Mcamara\LaravelLocalization\Middleware\LocaleSessionRedirect',
 	];
 
 }

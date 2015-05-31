@@ -52,7 +52,8 @@ return [
 	|
 	*/
 
-	'locale' => 'en',
+	'locale' => 'es',
+
 
 	/*
 	|--------------------------------------------------------------------------
@@ -137,6 +138,7 @@ return [
 		'Illuminate\View\ViewServiceProvider',
 
 
+
         /*
 		*	Vendor Service Providers
 		*/
@@ -151,6 +153,8 @@ return [
 		'AppCalorias\Providers\ConfigServiceProvider',
 		'AppCalorias\Providers\EventServiceProvider',
 		'AppCalorias\Providers\RouteServiceProvider',
+
+        'Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider',
 
 	],
 
@@ -205,6 +209,8 @@ return [
 		*/
         'Form' => 'Collective\Html\FormFacade',
         'Html' => 'Collective\Html\HtmlFacade',
+
+        'LaravelLocalization'   => 'Mcamara\LaravelLocalization\Facades\LaravelLocalization',
 
 	],
 

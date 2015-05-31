@@ -13,11 +13,20 @@ class UsersController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index()
-	{
-		return 'calcular kcal';
-	}
 
+    public function index()
+	{
+        // Recupero el id del usuario logado
+        $id = auth()->user()->id;
+
+        // Creo un usuario con los datos del usuario logado
+        $user = User::findOrFail($id);
+        //dd($user->first_name.$user->id);
+       return view('profile.form', compact('user'));
+
+	}
+//auth()->user()->first_name
+//$food = Food::findOrFail($id);
 
 
 	/**
@@ -67,7 +76,7 @@ class UsersController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+
 	}
 
 	/**

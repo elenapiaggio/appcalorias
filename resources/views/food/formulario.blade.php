@@ -6,6 +6,7 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
+
                     <div class="panel-heading">Calcula tu consumo diario de calorias</div>
 
                     <div class="panel-body">
@@ -24,7 +25,7 @@
 
                         <div class="form-group">
                             {!! Form::label('birthdate', 'Fecha Nacimiento') !!}
-                            {!! Form::text('birthdate', null, ['class' => 'form-control', 'placeholder'=>'escribe tu fecha de nacimiento' ]) !!}
+                            {!! Form::date('birthdate', null, ['class' => 'form-control', 'placeholder'=>'escribe tu fecha de nacimiento' ]) !!}
                         </div>
 
                         <div class="form-group">

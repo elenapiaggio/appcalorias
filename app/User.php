@@ -17,7 +17,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	protected $table = 'users';
 
 	/** The attributes that are mass assignable. */
-	protected $fillable = ['name', 'email', 'password'];
+	protected $fillable = ['name', 'email', 'password', 'birthdate', 'height', 'weight', 'sex', 'type_activity'];
 
 	/**
 	 * The attributes excluded from the model's JSON form.
@@ -48,5 +48,15 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         if(!empty( ($value))){
             $this->attributes['password'] = \Hash::make($value);
         }
+    }
+
+    /**
+     * Función que calcula la edad a partir de la fecha
+     * de nacimiento
+     *
+     * @return int con la edad
+     */
+    public function getAgeAttribute(){
+        return \Carbon\Carbon::parse($this->birthdate)->age;
     }
 }

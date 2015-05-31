@@ -8,7 +8,7 @@ class Food extends Model {
     protected $table = 'foods';
 
     /** The attributes that are mass assignable. */
-    protected $fillable = ['name', 'property_id', 'group_id'];
+    protected $fillable = ['name',  'group_id', 'calories', 'protein', 'fats', 'hydrates', 'sugars', 'fiber', 'salt'];
 
     /**
      * Relación con grupos
@@ -20,13 +20,6 @@ class Food extends Model {
         return $this->belongsTo('AppCalorias\Group', 'group_id', 'id');
     }
 
-    /**
-     * Relación Food / Properties
-     * Relación de muchos a muchas
-     */
-    public function properties(){
-        //return $this->belongsToMany('AppCalorias\Property', 'food_propertie', 'food_id', 'property_id' );
-        return $this->belongsToMany('AppCalorias\Property')->withTimestamps();
-    }
+
 
 }
